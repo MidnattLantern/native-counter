@@ -18,7 +18,6 @@ const ReducedView = () => {
                     </View>
                 )}
 
-            
                 {reducedValues.variableA.exponent === 0 ? (
                     null
                 ) : (
@@ -27,7 +26,11 @@ const ReducedView = () => {
                             {reducedValues.variableA.base + "a"}
                         </Text>
                         <Text style={[Styles.DisplayText, Styles.Exponent]}>
-                            {reducedValues.variableA.exponent}
+                            {reducedValues.variableA.exponent === 1 ? (
+                                null
+                            ) : (
+                                reducedValues.variableA.exponent
+                            )}
                         </Text>
                     </View>
                 )}
@@ -40,11 +43,14 @@ const ReducedView = () => {
                             {reducedValues.variableB.base + "b"}
                         </Text>
                         <Text style={[Styles.DisplayText, Styles.Exponent]}>
-                            {reducedValues.variableB.exponent}
+                            {reducedValues.variableB.exponent === 1 ? (
+                                null
+                            ) : (
+                                reducedValues.variableB.exponent
+                            )}
                         </Text>
                     </View>
                 )}
-
 
                 {reducedValues.variableC.exponent === 0 ? (
                     null
@@ -54,7 +60,11 @@ const ReducedView = () => {
                             {reducedValues.variableC.base + "c"}
                         </Text>
                         <Text style={[Styles.DisplayText, Styles.Exponent]}>
-                            {reducedValues.variableC.exponent}
+                            {reducedValues.variableC.exponent === 1 ? (
+                                null
+                            ) : (
+                                reducedValues.variableC.exponent
+                            )}
                         </Text>
                     </View>
                 )}
@@ -67,7 +77,11 @@ const ReducedView = () => {
                             {reducedValues.variableX.base + "x"}
                         </Text>
                         <Text style={[Styles.DisplayText, Styles.Exponent]}>
-                            {reducedValues.variableX.exponent}
+                            {reducedValues.variableX.exponent === 1 ? (
+                                null
+                            ) : (
+                                reducedValues.variableX.exponent
+                            )}
                         </Text>
                     </View>
                 )}
@@ -80,7 +94,11 @@ const ReducedView = () => {
                             {reducedValues.variableY.base + "y"}
                         </Text>
                         <Text style={[Styles.DisplayText, Styles.Exponent]}>
-                            {reducedValues.variableY.exponent}
+                            {reducedValues.variableY.exponent === 1 ? (
+                                null
+                            ) : (
+                                reducedValues.variableY.exponent
+                            )}
                         </Text>
                     </View>
                 )}
@@ -93,7 +111,11 @@ const ReducedView = () => {
                             {reducedValues.variableZ.base + "z"}
                         </Text>
                         <Text style={[Styles.DisplayText, Styles.Exponent]}>
-                            {reducedValues.variableZ.exponent}
+                            {reducedValues.variableZ.exponent === 1 ? (
+                                null
+                            ) : (
+                                reducedValues.variableZ.exponent
+                            )}
                         </Text>
                     </View>
                 )}
