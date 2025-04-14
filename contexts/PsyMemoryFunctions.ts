@@ -67,15 +67,15 @@ export const updateReducedTable = (
                         break;
                     case "X":
                         ReduceBaseX = ReduceBaseX === null ? valueA : ReduceBaseX * valueA;
-                        ReduceExponentA += valueC;
+                        ReduceExponentX += valueC;
                         break;
                     case "Y":
                         ReduceBaseY = ReduceBaseY === null ? valueA : ReduceBaseY * valueA;
-                        ReduceExponentB += valueC;
+                        ReduceExponentY += valueC;
                         break;
                     case "Z":
                         ReduceBaseZ = ReduceBaseZ === null ? valueA : ReduceBaseZ * valueA;
-                        ReduceExponentC += valueC;
+                        ReduceExponentZ += valueC;
                         break;
                 }
             };
@@ -83,10 +83,8 @@ export const updateReducedTable = (
 
         const CheckExponent = (variable: string) => {
             valueC === 0 ? (
-                console.log("turn into 1:", variable),
                 TurnVarInto1()
             ) : (
-                console.log("add to the variable"),
                 AddToVariable(variable)
             )
         };

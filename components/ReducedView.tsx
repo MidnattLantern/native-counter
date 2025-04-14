@@ -7,65 +7,96 @@ const ReducedView = () => {
 
     return (
         <View style={Styles.Foundation}>
-            <View style={Styles.ReducedVariableView}>
-                <Text style={Styles.DisplayText}>
-                    {reducedValues.constant.base}
-                </Text>
-            </View>
 
-            <View style={Styles.ReducedVariableView}>
-                <Text style={Styles.DisplayText}>
-                    {reducedValues.variableA.base + "a"}
-                </Text>
-                <Text style={[Styles.DisplayText, Styles.Exponent]}>
-                    {reducedValues.variableA.exponent}
-                </Text>
-            </View>
+                {reducedValues.constant.base === 0 ? (
+                    null
+                ) : (
+                    <View style={Styles.ReducedVariableView}>
+                        <Text style={Styles.DisplayText}>
+                            {reducedValues.constant.base}
+                        </Text>
+                    </View>
+                )}
 
-            <View style={Styles.ReducedVariableView}>
-                <Text style={Styles.DisplayText}>
-                    {reducedValues.variableB.base + "b"}
-                </Text>
-                <Text style={[Styles.DisplayText, Styles.Exponent]}>
-                    {reducedValues.variableB.exponent}
-                </Text>
-            </View>
+            
+                {reducedValues.variableA.exponent === 0 ? (
+                    null
+                ) : (
+                    <View style={Styles.ReducedVariableView}>
+                        <Text style={Styles.DisplayText}>
+                            {reducedValues.variableA.base + "a"}
+                        </Text>
+                        <Text style={[Styles.DisplayText, Styles.Exponent]}>
+                            {reducedValues.variableA.exponent}
+                        </Text>
+                    </View>
+                )}
 
-            <View style={Styles.ReducedVariableView}>
-                <Text style={Styles.DisplayText}>
-                    {reducedValues.variableC.base + "c"}
-                </Text>
-                <Text style={[Styles.DisplayText, Styles.Exponent]}>
-                    {reducedValues.variableC.exponent}
-                </Text>
-            </View>
+                {reducedValues.variableB.exponent === 0 ? (
+                    null
+                ) : (
+                    <View style={Styles.ReducedVariableView}>
+                        <Text style={Styles.DisplayText}>
+                            {reducedValues.variableB.base + "b"}
+                        </Text>
+                        <Text style={[Styles.DisplayText, Styles.Exponent]}>
+                            {reducedValues.variableB.exponent}
+                        </Text>
+                    </View>
+                )}
 
-            <View style={Styles.ReducedVariableView}>
-                <Text style={Styles.DisplayText}>
-                    {reducedValues.variableX.base + "x"}
-                </Text>
-                <Text style={[Styles.DisplayText, Styles.Exponent]}>
-                    {reducedValues.variableX.exponent}
-                </Text>
-            </View>
 
-            <View style={Styles.ReducedVariableView}>
-                <Text style={Styles.DisplayText}>
-                    {reducedValues.variableY.base + "y"}
-                </Text>
-                <Text style={[Styles.DisplayText, Styles.Exponent]}>
-                    {reducedValues.variableY.exponent}
-                </Text>
-            </View>
+                {reducedValues.variableC.exponent === 0 ? (
+                    null
+                ) : (
+                    <View style={Styles.ReducedVariableView}>
+                        <Text style={Styles.DisplayText}>
+                            {reducedValues.variableC.base + "c"}
+                        </Text>
+                        <Text style={[Styles.DisplayText, Styles.Exponent]}>
+                            {reducedValues.variableC.exponent}
+                        </Text>
+                    </View>
+                )}
 
-            <View style={Styles.ReducedVariableView}>
-                <Text style={Styles.DisplayText}>
-                    {reducedValues.variableZ.base + "z"}
-                </Text>
-                <Text style={[Styles.DisplayText, Styles.Exponent]}>
-                    {reducedValues.variableZ.exponent}
-                </Text>
-            </View>
+                {reducedValues.variableX.exponent === 0 ? (
+                    null
+                ) : (
+                    <View style={Styles.ReducedVariableView}>
+                        <Text style={Styles.DisplayText}>
+                            {reducedValues.variableX.base + "x"}
+                        </Text>
+                        <Text style={[Styles.DisplayText, Styles.Exponent]}>
+                            {reducedValues.variableX.exponent}
+                        </Text>
+                    </View>
+                )}
+
+                {reducedValues.variableY.exponent === 0 ? (
+                    null
+                ) : (
+                    <View style={Styles.ReducedVariableView}>
+                        <Text style={Styles.DisplayText}>
+                            {reducedValues.variableY.base + "y"}
+                        </Text>
+                        <Text style={[Styles.DisplayText, Styles.Exponent]}>
+                            {reducedValues.variableY.exponent}
+                        </Text>
+                    </View>
+                )}
+
+                {reducedValues.variableZ.exponent === 0 ? (
+                    null
+                ) : (
+                    <View style={Styles.ReducedVariableView}>
+                        <Text style={Styles.DisplayText}>
+                            {reducedValues.variableZ.base + "z"}
+                        </Text>
+                        <Text style={[Styles.DisplayText, Styles.Exponent]}>
+                            {reducedValues.variableZ.exponent}
+                        </Text>
+                    </View>
+                )}
 
         </View>
     )

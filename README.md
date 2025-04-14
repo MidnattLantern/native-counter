@@ -1,5 +1,7 @@
 I'm expanding my knowledge from React Vite to React Native with this project. This will allow me to get started developing iPhone apps. It's a gentle transition if you know JavaScript and TypeScript.
 
+This is RnD for combining mathmatics with UX. It's an early attempt and this subject will need many revisions as I get more familiar with elements of mathmatics, programming and UX.
+
 Font used: Faculty Glyphic borrowed from Google Fonts.
 
 
