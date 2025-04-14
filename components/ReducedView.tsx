@@ -5,7 +5,6 @@ import { usePsyMemory } from "@/contexts/PsyMemoryContext";
 const ReducedView = () => {
     const {reducedValues} = usePsyMemory();
 
-
     return (
         <View style={Styles.Foundation}>
             <View style={Styles.ReducedVariableView}>

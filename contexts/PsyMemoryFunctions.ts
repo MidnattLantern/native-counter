@@ -23,7 +23,7 @@ export const updateReducedTable = (
     psyList: {id: string | null, values: PsyValues, scrollPositionMemory: PsyScrollPositionMemory}[],
     setReducedValues: React.Dispatch<React.SetStateAction<{constant: Power, variableA: Power, variableB: Power, variableC: Power, variableX: Power, variableY: Power, variableZ: Power}>>
 ) => {
-    let ReduceBaseConstant = 0;
+    let ReduceBaseConstant: number | null = null;
     let ReduceBaseA: number | null = null;
     let ReduceBaseB: number | null = null;
     let ReduceBaseC: number | null = null;
@@ -31,7 +31,7 @@ export const updateReducedTable = (
     let ReduceBaseY: number | null = null;
     let ReduceBaseZ: number | null = null;
 
-    let ReduceExponentConstant = 0; // will always be 0, it exists for structured consistency
+    let ReduceExponentConstant = 0;
     let ReduceExponentA = 0;
     let ReduceExponentB = 0;
     let ReduceExponentC = 0;
@@ -42,41 +42,85 @@ export const updateReducedTable = (
     for (const object of psyList) {
         const { valueA, valueB, valueC } = object.values; // Value A represent base, Value B represent variable, Value C represent exponent
 
+        const TurnVarInto1 = () => {
+            const turnValue = valueC === 0 ? (
+                ReduceBaseConstant = ReduceBaseConstant === null ? (1) : (ReduceBaseConstant * 1)
+                ) : (
+                    null
+                );
+            return turnValue
+        };
+        const AddToVariable = (variable: string) => {
+            if (typeof valueA === "number" && typeof valueC === "number") {
+                switch (variable) {
+                    case "A":
+                        ReduceBaseA = ReduceBaseA === null ? valueA : ReduceBaseA * valueA;
+                        ReduceExponentA += valueC;
+                        break;
+                    case "B":
+                        ReduceBaseB = ReduceBaseB === null ? valueA : ReduceBaseB * valueA;
+                        ReduceExponentB += valueC;
+                        break;
+                    case "C":
+                        ReduceBaseC = ReduceBaseC === null ? valueA : ReduceBaseC * valueA;
+                        ReduceExponentC += valueC;
+                        break;
+                    case "X":
+                        ReduceBaseX = ReduceBaseX === null ? valueA : ReduceBaseX * valueA;
+                        ReduceExponentA += valueC;
+                        break;
+                    case "Y":
+                        ReduceBaseY = ReduceBaseY === null ? valueA : ReduceBaseY * valueA;
+                        ReduceExponentB += valueC;
+                        break;
+                    case "Z":
+                        ReduceBaseZ = ReduceBaseZ === null ? valueA : ReduceBaseZ * valueA;
+                        ReduceExponentC += valueC;
+                        break;
+                }
+            };
+        };
+
+        const CheckExponent = (variable: string) => {
+            valueC === 0 ? (
+                console.log("turn into 1:", variable),
+                TurnVarInto1()
+            ) : (
+                console.log("add to the variable"),
+                AddToVariable(variable)
+            )
+        };
+
         if (typeof valueA !== "number") continue; // we only work with numbers for this project
         if (typeof valueC !== "number") continue; // we only work with numbers for this project
 
         switch (valueB) {
             case null:
-                ReduceBaseConstant += (valueA ** valueC); // using arithmetic method
+                ReduceBaseConstant = ReduceBaseConstant === null ? (valueA ** valueC) : // using arithmetic logic
+                ReduceBaseConstant * (valueA ** valueC); // using arithmetic logic
                 break;
             case "a":
-                ReduceBaseA = ReduceBaseA === null ? valueA : ReduceBaseA * valueA;
-                ReduceExponentA += valueC;
+                CheckExponent("A");
                 break;
             case "b":
-                ReduceBaseB = ReduceBaseB === null ? valueA : ReduceBaseB * valueA;
-                ReduceExponentB += valueC;
+                CheckExponent("B");
                 break;
             case "c":
-                ReduceBaseC = ReduceBaseC === null ? valueA : ReduceBaseC * valueA;
-                ReduceExponentC += valueC;
+                CheckExponent("C");
                 break;
             case "x":
-                ReduceBaseX = ReduceBaseX === null ? valueA : ReduceBaseX * valueA;
-                ReduceExponentX += valueC;
+                CheckExponent("X");
                 break;
             case "y":
-                ReduceBaseY = ReduceBaseY === null ? valueA : ReduceBaseY * valueA;
-                ReduceExponentY += valueC;
+                CheckExponent("Y");
                 break;
             case "z":
-                ReduceBaseZ = ReduceBaseZ === null ? valueA : ReduceBaseZ * valueA;
-                ReduceExponentZ += valueC;
+                CheckExponent("Z");
                 break;
         };
     };
     setReducedValues({
-        constant: { base: ReduceBaseConstant, exponent: ReduceExponentConstant },
+        constant: { base: ReduceBaseConstant ?? 0, exponent: ReduceExponentConstant },
         variableA: { base: ReduceBaseA ?? 0, exponent: ReduceExponentA },
         variableB: { base: ReduceBaseB ?? 0, exponent: ReduceExponentB },
         variableC: { base: ReduceBaseC ?? 0, exponent: ReduceExponentC },

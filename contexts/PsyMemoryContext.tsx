@@ -1,6 +1,5 @@
 import { createContext, ReactNode, useContext, useEffect, useState } from "react"
 import { updateReducedTable } from "./PsyMemoryFunctions";
-import LibraryData from "@/data/menu/MagScrollLibraryData.json";
 
 const PsyMemoryContext = createContext<PsyMemoryContextType | undefined>(undefined);
 
@@ -50,7 +49,7 @@ export const PsyMemoryProvider: React.FC<PsyMemoryProviderProps> = ({ children }
         values: {valueA: null, valueB: null, valueC: null},
         scrollPositionMemory: {positionA: 0, positionB: 0, positionC: 0}
     });
-    const [reducedValues, setReducedValues] = useState<{
+    const [reducedValues, setReducedValues] = useState<{ // to be reprecated alter
         constant: Power, 
         variableA: Power, variableB: Power, variableC: Power,
         variableX: Power, variableY: Power, variableZ: Power
@@ -93,11 +92,11 @@ export const PsyMemoryProvider: React.FC<PsyMemoryProviderProps> = ({ children }
             targetPsyObjectIndex,
             psyList,
             currentPsyItem,
-            reducedValues,
+            reducedValues, // to be replaced on future reiteration
             setTargetPsyObjectIndex,
             setPsyList,
             setCurrentPsyItem,
-            setReducedValues
+            setReducedValues // to be replaced on future reiteration
         }}
         >
             {children}
