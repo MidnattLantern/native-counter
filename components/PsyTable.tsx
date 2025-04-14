@@ -3,6 +3,7 @@ import Styles from "@/styles/PsyTable";
 import { usePsyMemory } from "@/contexts/PsyMemoryContext";
 import React from "react";
 import uuid from 'react-native-uuid';
+import RenderEachPsyObject from "./PsyTableComponents/RenderEachPsyObject";
 
 interface CustomTextProps extends TextProps {
     jumpValue: number
@@ -10,7 +11,7 @@ interface CustomTextProps extends TextProps {
 
 const PsyTable = () => {
 
-    const { targetPsyObjectIndex, psyList, currentPsyItem, setTargetPsyObjectIndex, setPsyList, setCurrentPsyItem } = usePsyMemory();
+    const { targetPsyObjectIndex, psyList, currentPsyItem, setTargetPsyObjectIndex, setPsyList } = usePsyMemory();
     const newItemIndex = uuid.v4();
 
     // functions
@@ -19,8 +20,8 @@ const PsyTable = () => {
           ...preExisting,
           {
             id: newItemIndex, // or some unique ID logic
-            values: { valueA: null, valueB: null, valueC: null },
-            scrollPositionMemory: { positionA: 0, positionB: 0, positionC: 0 }
+            values: { valueA: 1, valueB: null, valueC: 1 },
+            scrollPositionMemory: { positionA: 3, positionB: 0, positionC: 1 }
           }
         ]);
         setTargetPsyObjectIndex(psyList.length);
@@ -32,23 +33,7 @@ const PsyTable = () => {
         setTargetPsyObjectIndex(null);
     };
 
-    // components
-    const RenderEachPsyObject = () => {
-        return(
-            psyList.map((object, index) => 
-                <Pressable
-                key={index}
-                style={[Styles.PsyItem, index === targetPsyObjectIndex ? Styles.PsyItemTargeted : null]}
-                onPress={() => {setTargetPsyObjectIndex(index)}}
-                onPointerEnter={() => {setTargetPsyObjectIndex(index)}}
-                >
-                    <Text style={Styles.DisplayValueText}>{object.values.valueA}</Text>
-                    <Text style={Styles.DisplayValueText}>{object.values.valueB}</Text>
-                    <Text style={[Styles.DisplayValueText, Styles.Exponent]}>{object.values.valueC}</Text>
-                </Pressable>
-            )
-        );
-    };
+    // elements
     const NavigateTargetButton: React.FC<CustomTextProps> = ({ children, jumpValue }) => {
         const HandleNavigateTarget = (jumpValue: number) => {
             if (targetPsyObjectIndex !== null) {
@@ -83,7 +68,7 @@ const PsyTable = () => {
                 </Pressable>
             </View>
             <View style={Styles.PsyTableView}>
-                <RenderEachPsyObject/>
+            <RenderEachPsyObject/>
                 <Pressable style={Styles.PsyItem} onPress={() => {createPsyObject()}}>
                     <Text style={Styles.DisplayValueText}>
                         {"+ Add"}

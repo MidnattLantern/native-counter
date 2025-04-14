@@ -1,5 +1,6 @@
 import { createContext, ReactNode, useContext, useEffect, useState } from "react"
 import { updateReducedTable } from "./PsyMemoryFunctions";
+import LibraryData from "@/data/menu/MagScrollLibraryData.json";
 
 const PsyMemoryContext = createContext<PsyMemoryContextType | undefined>(undefined);
 
@@ -62,58 +63,6 @@ export const PsyMemoryProvider: React.FC<PsyMemoryProviderProps> = ({ children }
         variableY: {base: 0, exponent: 0},
         variableZ: {base: 0, exponent: 0}
     });
-
-    // functions
-    /*
-    const UpdateReducedTable = () => {
-        let ReduceConstant = 0;
-        let ReduceA = 0;
-        let ReduceB = 0;
-        let ReduceC = 0;
-        let ReduceX = 0;
-        let ReduceY = 0;
-        let ReduceZ = 0;
-    
-        for (const object of psyList) {
-            const { valueA, valueB } = object.values; // Value A represent base, Value B represent variable
-    
-            if (typeof valueA !== "number") continue; // only work with numbers
-    
-            switch (valueB) {
-                case null:
-                    ReduceConstant += valueA;
-                    break;
-                case "a":
-                    ReduceA += valueA;
-                    break;
-                case "b":
-                    ReduceB += valueA;
-                    break;
-                case "c":
-                    ReduceC += valueA;
-                    break;
-                case "x":
-                    ReduceX += valueA;
-                    break;
-                case "y":
-                    ReduceY += valueA;
-                    break;
-                case "z":
-                    ReduceZ += valueA;
-                    break;
-            };
-        };
-        setReducedValues({
-            constant: { base: ReduceConstant, exponent: 0 },
-            variableA: { base: ReduceA, exponent: 0 },
-            variableB: { base: ReduceB, exponent: 0 },
-            variableC: { base: ReduceC, exponent: 0 },
-            variableX: { base: ReduceX, exponent: 0 },
-            variableY: { base: ReduceY, exponent: 0 },
-            variableZ: { base: ReduceZ, exponent: 0 }
-        });
-    };
-    */
 
     // effect
     useEffect(() => {

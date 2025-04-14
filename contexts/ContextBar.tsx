@@ -43,18 +43,28 @@ const ContextBar = () => {
 
             <SectionView>
                 <Text style={Styles.DisplayText}>{'Constant sum: ' + reducedValues.constant.base}</Text>
+                <Text style={Styles.DisplayText}>{'Constant exponent: ' + reducedValues.constant.exponent}</Text>
             </SectionView>
 
             <SectionView>
                 <Text style={Styles.DisplayText}>{'Variable A sum: ' + reducedValues.variableA.base}</Text>
+                <Text style={Styles.DisplayText}>{'Variable A exponent: ' + reducedValues.variableA.exponent}</Text>
                 <Text style={Styles.DisplayText}>{'Variable B sum: ' + reducedValues.variableB.base}</Text>
-                <Text style={Styles.DisplayText}>{'Variable C sum: ' + reducedValues.variableC.base}</Text>
+                <Text style={Styles.DisplayText}>{'Variable B exponent: ' + reducedValues.variableB.exponent}</Text>
             </SectionView>
 
             <SectionView>
+                <Text style={Styles.DisplayText}>{'Variable C sum: ' + reducedValues.variableC.base}</Text>
+                <Text style={Styles.DisplayText}>{'Variable C exponent: ' + reducedValues.variableC.exponent}</Text>
                 <Text style={Styles.DisplayText}>{'Variable X sum: ' + reducedValues.variableX.base}</Text>
+                <Text style={Styles.DisplayText}>{'Variable X exponent: ' + reducedValues.variableX.exponent}</Text>
+            </SectionView>
+
+            <SectionView>
                 <Text style={Styles.DisplayText}>{'Variable Y sum: ' + reducedValues.variableY.base}</Text>
+                <Text style={Styles.DisplayText}>{'Variable Y exponent: ' + reducedValues.variableY.exponent}</Text>
                 <Text style={Styles.DisplayText}>{'Variable Z sum: ' + reducedValues.variableZ.base}</Text>
+                <Text style={Styles.DisplayText}>{'Variable Z exponent: ' + reducedValues.variableZ.exponent}</Text>
             </SectionView>
         </View>
     </>)
@@ -65,17 +75,19 @@ export default ContextBar;
 const Styles = StyleSheet.create({
     Foundation: {
         width: '100%',
-        height: 50,
+        height: 70, // before was 50
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: ColorThemes.dark,
-        flexDirection: 'row'
+        flexDirection: 'row',
+        overflowX: 'scroll',
+        overflowY: 'hidden'
     },
     DisplayText: {
         color: ColorThemes.whiteOffset,
         marginLeft: 5,
         marginRight: 5,
-        fontSize: 7.5,
+        fontSize: 9, // before was 7.5
         fontFamily: 'FacultyGlyphic'
     },
     SectionView: {
